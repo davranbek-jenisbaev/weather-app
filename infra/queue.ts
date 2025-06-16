@@ -3,4 +3,7 @@ import { resendApiKeySecret, resendDomainSecret } from "./secrets";
 
 export const emailQueue = new sst.aws.Queue("EmailQueue");
 
-emailQueue.subscribe("packages/functions/src/cron/email-sender.handler");
+emailQueue.subscribe({
+  handler: "packages/functions/src/cron/email-sender.handler",
+  link: [weatherAppTable, resendApiKeySecret, resendDomainSecret],
+});
