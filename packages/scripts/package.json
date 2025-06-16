@@ -1,9 +1,9 @@
 {
-  "name": "@monorepo-template/scripts",
+  "name": "@weather-app/scripts",
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "@monorepo-template/core": "*",
+    "@weather-app/core": "*",
     "sst": "*"
   },
   "scripts": {
