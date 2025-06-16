@@ -10,9 +10,8 @@ export default $config({
     };
   },
   async run() {
-    new sst.Secret("WeatherAppApiKey");
-
     const db = await import("./infra/db");
+    await import("./infra/secrets");
     await import("./infra/api");
     await import("./infra/cron");
     await import("./infra/queue");
