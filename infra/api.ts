@@ -1,8 +1,12 @@
 import { weatherAppTable } from "./db";
-import { bucket } from "./storage";
 
-export const myApi = new sst.aws.Function("MyApi", {
-  url: true,
-  link: [bucket, weatherAppTable],
-  handler: "packages/functions/src/api.handler",
+const api = new sst.aws.ApiGatewayV2("WeatherAppApi", {
+  link: [weatherAppTable],
 });
+
+api.route("GET /weather", "packages/functions/src/weather/get.handler");
+
+api.route(
+  "POST /subscriptions",
+  "packages/functions/src/subscriptions/create.handler",
+);

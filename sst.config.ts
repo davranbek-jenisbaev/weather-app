@@ -10,12 +10,14 @@ export default $config({
     };
   },
   async run() {
-    const storage = await import("./infra/storage");
+    new sst.Secret("WeatherAppApiKey");
+
     const db = await import("./infra/db");
     await import("./infra/api");
+    await import("./infra/cron");
+    await import("./infra/queue");
 
     return {
-      MyBucket: storage.bucket.name,
       WeatherAppTable: db.weatherAppTable.name,
     };
   },

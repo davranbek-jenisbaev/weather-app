@@ -5,19 +5,6 @@
 
 declare module "sst" {
   export interface Resource {
-    "MyApi": {
-      "name": string
-      "type": "sst.aws.Function"
-      "url": string
-    }
-    "MyBucket": {
-      "name": string
-      "type": "sst.aws.Bucket"
-    }
-    "WeatherApp": {
-      "tableName": string
-      "type": "aws.dynamodb/table.Table"
-    }
   }
 }
 /// <reference path="sst-env.d.ts" />
