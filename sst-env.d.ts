@@ -5,6 +5,30 @@
 
 declare module "sst" {
   export interface Resource {
+    "EmailQueue": {
+      "type": "sst.aws.Queue"
+      "url": string
+    }
+    "ResendApiKey": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "ResendDomain": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "WeatherAppApi": {
+      "type": "sst.aws.ApiGatewayV2"
+      "url": string
+    }
+    "WeatherAppApiKey": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
+    "WeatherAppTable": {
+      "tableName": string
+      "type": "aws.dynamodb/table.Table"
+    }
   }
 }
 /// <reference path="sst-env.d.ts" />
